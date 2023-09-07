@@ -1,0 +1,44 @@
+<h3>{{ product['name'] }}</h3>
+
+<p>{{ product['category'] }}</p>
+
+<p>$ {{ product['price'] }}</p>
+
+<!--Filtro default-->
+<p>Filtro default: {{ product['price'] | default('sin precio', True) }}</p>
+
+<h1>Hola Mundo</h1>
+
+<!--Filtro safe-->
+{{ "<h1>Filtro safe: Hola mundo</h1>" | safe }}
+
+{{ "Filtro safe:<script>alert()</script>" | safe }}
+<!--Filtro truncate sirve para imprimir un string demaciado agregandole al final ...-->
+{{ "Filtro truncate: Esto es la descripcion de un producto" | truncate(28) }}
+<!--Nota: Este filtro usar ultimas 3 posiciones del parametro para los puntos suspensivos-->
+
+<!--Filtro count:Sirve para contar los caracteres de un a frase-->
+{{ "Filtro count: Esto es la descripcion de un producto" | count }}
+
+<!--Este filtro sirve para convertir un numero entro o string a flotante-->
+<p>Filtro float: {{ "70.7" | float }}</p>
+
+<!--Este filtro sirve para convertir un numero decimal o string a entero-->
+<p>Filtro int: {{ 70.7 | int }}</p>
+
+<!--Este filtro sirve para redondear un numero decimal o string a entero-->
+<p>Filtro round:{{ 3.141592653589793238462643383 | round(4) }}</p>
+
+<!--Este filtro sirve para mostrar un array como un string-->
+<p>Filtro join:{{ ['iPhone','iPad'] | join(', ') }}</p>
+
+<!--Este filtro sirve para contar los elementos de un array-->
+<p>Filtro length:{{ ['iPhone','iPad'] | length }}</p>
+
+<p>Filtro tojson:{{ {'offer': False, 'price':50, 'k':45 } | tojson }}</p>
+
+<p>Filtro global custom:{{ 50 | mydouble }}</p>
+
+<p>Filtro global custom:{{ 100 | mydouble }}</p>
+
+<p>Filtro global custom:{{ product | iva }}</p>

@@ -1,0 +1,11 @@
+{% extends 'layout/base.html' %}
+
+{% block container %}
+
+    {% for product in products %}
+        <div>
+            <a href="{{ url_for('product.show',id=product['id']) }}">{{ product['name'] }}</a>
+        </div>
+        {{loop.revindex}}
+    {% endfor %}
+{% endblock %}
